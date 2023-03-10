@@ -9,3 +9,5 @@ import os
 path = os.path.dirname(os.getcwd())
 
 teams = pd.read_csv(path+'/data/teams.csv')
+
+print("hello world")
