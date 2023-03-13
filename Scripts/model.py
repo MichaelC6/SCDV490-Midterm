@@ -8,8 +8,12 @@ from sklearn.neural_network import MLPRegressor
 # Get path to data
 path = os.path.dirname(os.getcwd())
 
+
+# A IS HOME, B IS AWAY
 # Load all the data needed
+# MAKE PREDICTION, 0 FOR HOME TEAM WIN, 1 FOR AWAY TEAM WIN
 header = pd.read_csv(path+'/data/header.csv')
+compare = pd.read_csv(path+'/data/comparison.csv')
 
 # It is now time to make a collosial dataset and it will require a lot of cleaning beforehand
 header_X = header.drop(columns = ['game','date','time','round','phase','season_code','team_a','team_b',
@@ -27,20 +31,20 @@ X = pd.get_dummies(X, columns=['stadium'])
 
 
 # grab my scores for each team so
-Y = header[['score_a','score_b']]
+#Y = header[['score_a','score_b']]
 
 
 
 # What I want to get from this is score_a and score_b... that is the target output.
-X_train, X_test, y_train, y_test = sklearn.model_selection.train_test_split(X,Y, test_size = 0.4, random_state = 42)
+#X_train, X_test, y_train, y_test = sklearn.model_selection.train_test_split(X,Y, test_size = 0.4, random_state = 42)
 
 
 # I get results here BUT... they are flawed.
 # It is an non clear result... I don't know WHO won.
-regr = MLPRegressor().fit(X_train, y_train)
+#regr = MLPRegressor().fit(X_train, y_train)
 
-predictions = regr.predict(X_test)
-score = regr.score(X_test, y_test)
+#predictions = regr.predict(X_test)
+#score = regr.score(X_test, y_test)
 
 
 
